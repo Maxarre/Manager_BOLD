@@ -1,0 +1,27 @@
+<div class="sidebar">
+  <h2 style="padding-left:15px;">Manager BOLD</h2>
+  <div class="doctor_profile">
+    <div class="d-flex position-doc-info-card">
+      <ul class="list-inline position-doc-info"><li>
+        <h3><%=current_user.name%></h3>
+        <h5><%= current_user.email %><h5></li>
+      </ul>
+    </div>
+  </div>
+  <ul>
+    <%= link_to dashboard_path, class:"erase d-flex" do %>
+      <li class="list-inline <%= "active" if params[:action] == "dashboard" %>"><i class="far fa-calendar-alt"></i> Dashboard</li>
+    <% end  %>
+    <%= link_to lists_path, class:"erase d-flex" do %>
+      <li class="list-inline <%= "active" if params[:action] == "index" && params[:controller] == "patients" %>"><i class="far fa-user"></i> Lists </li>
+    <% end  %>
+
+    <li class='hl list-inline'></li>
+    <li class="nav-item dropdown settings" style="list-style: none">
+        <i class="fas fa-cog settings list-inline dropdown-toggle" id="navbarDropdown", data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span> Settings</span></i>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
+    </li>
+  </ul>
+</div>
