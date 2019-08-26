@@ -3,6 +3,7 @@
 <h3>Tasks</h3>
   <% @tasks.each do |task| %>
   <li>
+    <input type="checkbox" <%= task.complete? ? "checked" : "" %> >
     <%= task.name %>
     <%= link_to "Remove", list_task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task?"}, class: "btn btn-danger" %>
   </li>
