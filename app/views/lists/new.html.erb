@@ -1,2 +1,9 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<h1>Create a new list</h1>
+<%= form_for(@list) do |t| %>
+  <%= t.label :name  %>
+  <%= t.text_field :name %>
+
+  <%= t.submit %>
+<% end %>
+
+<p><%= link_to "Back to lists", dashboard_path %></p>
