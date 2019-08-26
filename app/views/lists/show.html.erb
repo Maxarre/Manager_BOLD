@@ -1,2 +1,27 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @list.name %></h1>
+
+<h3>Tasks</h3>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= task.name %>
+    <%= link_to "Remove", list_task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task?"}, class: "btn btn-danger" %>
+  </li>
+  <% end %>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Add a task</button>
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add a task</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@list, @task] do |f| %>
+            <%= f.input :name %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
