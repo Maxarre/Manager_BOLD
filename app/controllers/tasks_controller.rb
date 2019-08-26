@@ -17,6 +17,9 @@ class TasksController < ApplicationController
     @list = List.find(params[:list_id])
     @task.list = @list
     if @task.save
+      ApplicationMailer.with(user: @user).completed_task_mail.deliver_now
+      format.html { redirect_to(@user, notice: 'Task Completed') }
+      format.json { render json: @user, status: :created, location: @user }
       redirect_to list_path(@list)
     else
       render 'lists#show'
