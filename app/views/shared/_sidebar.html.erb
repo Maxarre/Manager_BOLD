@@ -10,10 +10,10 @@
   </div>
   <ul>
     <%= link_to dashboard_path, class:"erase d-flex" do %>
-      <li class="list-inline <%= "active" if params[:action] == "dashboard" %>"><i class="far fa-calendar-alt"></i> Dashboard</li>
+      <li class="list-inline <%= "active" if params[:action] == "dashboard" %>"><i class="far fa-calendar-alt"></i>Dashboard</li>
     <% end  %>
-    <%= link_to lists_path, class:"erase d-flex" do %>
-      <li class="list-inline <%= "active" if params[:action] == "index" && params[:controller] == "patients" %>"><i class="far fa-user"></i> Lists </li>
+    <%= link_to archives_path, class:"erase d-flex" do %>
+      <li class="list-inline <%= "active" if params[:action] == "index" && params[:controller] == "patients" %>"><i class="fas fa-archive"></i>Archives</li>
     <% end  %>
 
     <li class='hl list-inline'></li>
