@@ -5,6 +5,7 @@ devise_for :users
 
   get 'home', to: 'pages#home'
   get 'dashboard', to: 'users#dashboard'
+  get 'archives', to: 'users#archives'
 
   resources :users
 
