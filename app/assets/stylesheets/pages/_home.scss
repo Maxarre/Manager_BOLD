@@ -1,1 +1,99 @@
 // Specific CSS for your home-page
+.home {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  width: 100vw;
+  height: 100vh;
+
+  .home-image {
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  line-height: 3em;
+  background-image: linear-gradient(175deg, rgba(15, 81, 154, 0.8), rgba(71, 146, 229, 0.8)),
+    url("https://edito.regionsjob.com/observatoire-metier/wp-content/uploads/sites/4/2015/11/Conseiller-en-gestion-dentreprise-Copier.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // rgba(71, 146, 229, 0.8)
+  h1 {
+    font-size: 49px;
+    margin: 20px 0px;
+    font-weight: bolder;
+    color: rgba(250, 250, 250, 1);
+    letter-spacing: 3px;
+    }
+  h3 {
+    font-size: 30px;
+    margin: 15px 0px;
+    color: rgba(250, 250, 250, 0.9);
+    letter-spacing: 3px;
+    }
+  ul {
+    padding-left: 0px;
+    color: rgba(250, 250, 250, 0.7);
+    }
+  li {
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 15px;
+    letter-spacing: 1px;
+    color: white;
+    opacity: 0.8;
+    }
+    .fas {
+      margin: 0 10px;
+      font-size: 24px;
+      color: white;
+      opacity: 0.9;
+    }
+    h2 {
+      color: #404751;
+    }
+  }
+
+  .home-signup {
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  }
+
+}
+
+
+.horizontal-line {
+  height: 1px;
+  background-color: rgba(250, 250, 250, 0.7);
+  width: 10vw;
+  margin: 50px 0px
+}
+
+.offilog {
+  color: #7a7a7a !important;
+  // color: #404751 !important;
+
+}
+
+.home-signup {
+
+  input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #404751;
+    opacity: 1; /* Firefox */
+  }
+
+  input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #404751;
+  }
+
+  input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #404751;
+  }
+
+  input:-webkit-autofill {
+  -webkit-text-fill-color: #404751;
+  }
+  input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #404751;
+  }
+}
