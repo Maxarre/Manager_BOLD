@@ -1,10 +1,10 @@
 class ApplicationMailer < ActionMailer::Base
   default from: 'no-reply@manager-bold.com'
-  # layout 'application_mailer'
+  layout 'mailer'
 
   def completed_task_mail
     @user = params[:user]
     # @url = "https://manager-bold.herokuapp.com/"
-    mail(to: @user.email, subject: 'Congratulations')
+    mail(to: @user.email, subject: 'Congratulations', body: 'something')
   end
 end
