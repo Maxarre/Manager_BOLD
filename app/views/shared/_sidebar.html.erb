@@ -13,7 +13,7 @@
       <li class="list-inline <%= "active" if params[:action] == "dashboard" %>"><i class="far fa-calendar-alt"></i>Dashboard</li>
     <% end  %>
     <%= link_to archives_path, class:"erase d-flex" do %>
-      <li class="list-inline <%= "active" if params[:action] == "index" && params[:controller] == "patients" %>"><i class="fas fa-archive"></i>Archives</li>
+      <li class="list-inline <%= "active" if params[:action] == "index" %>"><i class="fas fa-archive"></i>Archives</li>
     <% end  %>
 
     <li class='hl list-inline'></li>
