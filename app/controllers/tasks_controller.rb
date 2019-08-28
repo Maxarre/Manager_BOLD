@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @list = List.find(params[:list_id])
+    @user = current_user
     @task.list = @list
     if @task.save
       ApplicationMailer.with(user: @user).completed_task_mail.deliver_now
