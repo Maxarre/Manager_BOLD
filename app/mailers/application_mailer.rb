@@ -5,6 +5,6 @@ class ApplicationMailer < ActionMailer::Base
   def completed_task_mail
     @user = params[:user]
     # @url = "https://manager-bold.herokuapp.com/"
-    mail(to: @user.email, subject: 'Congratulations', body: 'something')
+    mail(to: @user.email, subject: 'Congratulations')
   end
 end
