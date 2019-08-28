@@ -21,7 +21,7 @@ class TasksController < ApplicationController
       respond_to do |format|
         ApplicationMailer.with(user: @user).completed_task_mail.deliver_now
         format.html { redirect_to list_path(@list) }
-        # format.json { render json: @user, status: :created, location: @user }
+        format.json { render json: @user, status: :created, location: @user }
       end
       # redirect_to list_path(@list)
     else
