@@ -1,4 +1,4 @@
-<div class="lists">
+<div class="archives">
   <h1>Lists with Completed Tasks</h1>
   <% @lists.each do |list| %>
     <% unless list.archive %>
@@ -6,7 +6,7 @@
       <%= list.name %>
     </li>
       <% list.tasks.each do |task| %>
-        <% unless task.complete %>
+        <% if task.complete? %>
         <ul>
           <i class="fa fa-check" aria-hidden="true"></i><%= task.name %>
         </ul>
