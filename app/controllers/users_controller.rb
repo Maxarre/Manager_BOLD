@@ -3,9 +3,6 @@ class UsersController < ApplicationController
     @lists = current_user.lists
   end
 
-  def archives
-  end
-
   def index
   end
 

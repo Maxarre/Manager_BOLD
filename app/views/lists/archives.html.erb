@@ -1,0 +1,13 @@
+<div class="archives">
+  <h1>Lists with Completed Tasks</h1>
+  <% @lists.each do |list| %>
+  <li>
+    <%= list.name %>
+<!--     <%# @tasks.each do |task| %>
+    <li>
+      <%#= task.name %>
+    </li>
+    <%# end %> -->
+  </li>
+  <% end %>
+</div>

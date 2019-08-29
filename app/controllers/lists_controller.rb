@@ -1,4 +1,10 @@
 class ListsController < ApplicationController
+  def archives
+    @lists = current_user.lists
+    # @list = List.find(params[:id])
+    # @tasks = @list.tasks
+  end
+
   def index
     @lists = current_user.lists
     @list = List.new(params[:list])
