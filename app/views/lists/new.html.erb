@@ -1,9 +1,12 @@
-<h1>Create a new list</h1>
-<%= form_for(@list) do |t| %>
-  <%= t.label :name  %>
-  <%= t.text_field :name %>
+<div class="container-fluid" id="list-new">
+  <h1>Create a New List</h1>
+  <%= form_for(@list) do |t| %>
+    <%= t.label :name  %>
+    <%= t.text_field :name %>
 
-  <%= t.submit %>
-<% end %>
-
-<p><%= link_to "Back to lists", dashboard_path %></p>
+    <%= t.submit %>
+  <% end %>
+  <div class="row">
+    <p><%= link_to "Back to lists", dashboard_path, class: "btn btn-outline-primary" %></p>
+  </div>
+</div>
