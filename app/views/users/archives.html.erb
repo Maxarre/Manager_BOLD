@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="archives">
   <h1>Lists with Completed Tasks</h1>
   <% @lists.each do |list| %>
   <div class="row">
@@ -10,8 +10,8 @@
     <div class="w-100"></div>
       <% list.tasks.each do |task| %>
         <% if task.complete? %>
-        <ul>
-          <i class="fa fa-check" aria-hidden="true"></i><%= task.name %>
+        <ul class="archives-tasks">
+          <h5><i class="fa fa-check" aria-hidden="true"></i><%= task.name %></h5>
         </ul>
         <% end %>
       <% end %>
