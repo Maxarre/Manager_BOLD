@@ -1,29 +1,37 @@
-<h1><%= @list.name %></h1>
-
-<h3>Tasks</h3>
+<div class="container-fluid" id="list-show">
+  <h1><%= @list.name %></h1>
+  <h2>Tasks</h2>
   <% @tasks.each do |task| %>
+  <div class="row">
     <% unless task.complete %>
-      <li>
-        <%= task.name %>
-        <%= link_to "Completed", list_task_complete_path(task), method: :post, class: "btn btn-secondary"  %>
-        <%= link_to "Remove", list_task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task?"}, class: "btn btn-danger" %>
-      </li>
+    <i class="fas fa-circle"></i>
+    <div class="col">
+      <h4><%= task.name %></h4>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <%= link_to "Completed", list_task_complete_path(task), method: :post, class: "btn btn-secondary"  %>
+      <%= link_to "Remove", list_task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task?"}, class: "btn btn-danger" %>
+    </div>
     <% end %>
+  </div>
   <% end %>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Add a task</button>
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add a task</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for [@list, @task] do |f| %>
-            <%= f.input :name %>
-          <%= f.submit %>
-        <% end %>
+  <div class="row">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Add a task</button>
+  </div>
+  <div id="modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add a task</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [@list, @task] do |f| %>
+              <%= f.input :name %>
+            <%= f.submit %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
