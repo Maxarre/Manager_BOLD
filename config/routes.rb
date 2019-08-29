@@ -10,6 +10,7 @@ devise_for :users
   resources :users
 
   resources :lists, only: [:index, :show, :new, :create, :destroy] do
-    resources :tasks, only: [:create, :destroy]
+    resources :tasks, only: [:create, :destroy, :edit, :update]
+    post 'tasks/:id', to: 'tasks#complete', as: 'task_complete'
   end
 end

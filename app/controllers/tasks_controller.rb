@@ -18,12 +18,25 @@ class TasksController < ApplicationController
     @user = current_user
     @task.list = @list
     if @task.save
+      redirect_to list_path(@list)
+    else
+      render 'lists#show'
+    end
+  end
+
+  def complete
+    @list = List.find(params[:id])
+    @user = current_user
+    @task = Task.find(params[:list_id])
+    @task.complete = true
+    # @task.save
+    # redirect_to list_path(list)
+    if @task.save
       respond_to do |format|
         ApplicationMailer.with(user: @user).completed_task_mail.deliver_now
         format.html { redirect_to list_path(@list) }
         format.json { render json: @user, status: :created, location: @user }
       end
-      # redirect_to list_path(@list)
     else
       render 'lists#show'
     end
@@ -31,7 +44,6 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
-    # redirect_to
   end
 
   def update
@@ -50,6 +62,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :completed, :list_id)
+    params.require(:task).permit(:name, :complete, :list_id)
   end
 end
