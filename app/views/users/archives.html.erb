@@ -1,17 +1,21 @@
-<div class="archives">
+<div class="container-fluid" id="archives">
   <h1>Lists with Completed Tasks</h1>
   <% @lists.each do |list| %>
+  <div class="row">
+    <i class="fas fa-circle"></i>
     <% unless list.archive %>
-    <li>
-      <%= list.name %>
-    </li>
+    <div class="col">
+      <h4><%= list.name %></h4>
+    </div>
+    <div class="w-100"></div>
       <% list.tasks.each do |task| %>
         <% if task.complete? %>
-        <ul>
-          <i class="fa fa-check" aria-hidden="true"></i><%= task.name %>
+        <ul class="archives-tasks">
+          <h5><i class="fa fa-check" aria-hidden="true"></i><%= task.name %></h5>
         </ul>
         <% end %>
       <% end %>
     <% end %>
+  </div>
   <% end %>
 </div>
