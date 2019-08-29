@@ -1,1 +1,17 @@
-archives.html.erb
+<div class="lists">
+  <h1>Lists with Completed Tasks</h1>
+  <% @lists.each do |list| %>
+    <% unless list.archive %>
+    <li>
+      <%= list.name %>
+    </li>
+      <% list.tasks.each do |task| %>
+        <% unless task.complete %>
+        <ul>
+          <i class="fa fa-check" aria-hidden="true"></i><%= task.name %>
+        </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
