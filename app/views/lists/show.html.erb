@@ -3,18 +3,36 @@
 <h3>Tasks</h3>
   <% @tasks.each do |task| %>
   <li>
-    <input type="checkbox" <%= task.complete? ? "checked" : "" %> >
     <%= task.name %>
+<!--     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal">Update Task</button>
+    <div id="modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Update Task</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for ([@list, @task]) do |f| %>
+                <%= f.check_box :complete %>
+                <%= f.label :complete %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div> -->
     <%= link_to "Remove", list_task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task?"}, class: "btn btn-danger" %>
   </li>
   <% end %>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Add a task</button>
+  <p><%= link_to "Add new list", new_list_path, class: "btn btn-primary" %></p>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Add a Task</button>
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Add a task</h4>
+        <h4 class="modal-title">Add a Task</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
@@ -25,4 +43,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

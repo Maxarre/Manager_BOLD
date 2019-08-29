@@ -15,9 +15,23 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @list = List.find(params[:list_id])
-    @user = current_user
     @task.list = @list
     if @task.save
+      redirect_to list_path(@list)
+    else
+      render 'lists#show'
+    end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+    @user = current_user
+    @task = Task.find(params[:id])
+    if @task.update(params[:task])
       respond_to do |format|
         ApplicationMailer.with(user: @user).completed_task_mail.deliver_now
         format.html { redirect_to list_path(@list) }
@@ -27,17 +41,6 @@ class TasksController < ApplicationController
     else
       render 'lists#show'
     end
-  end
-
-  def edit
-    @task = Task.find(params[:id])
-    # redirect_to
-  end
-
-  def update
-    @task = Task.find(params[:id])
-    @task.update(params[:task])
-    redirect_to tasks_path
   end
 
   def destroy
