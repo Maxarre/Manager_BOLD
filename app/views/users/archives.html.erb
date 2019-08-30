@@ -1,13 +1,13 @@
 <div class="container-fluid" id="archives">
   <h1>Completed Tasks</h1>
   <% @lists.each do |list| %>
-  <div class="row">
     <% if list.archive %>
-    <i class="fas fa-circle"></i>
-    <div class="col">
-      <h4><%= list.name %></h4>
-    </div>
-    <div class="w-100"></div>
+    <div class="row">
+      <i class="fas fa-circle"></i>
+      <div class="col">
+        <h4><%= list.name %></h4>
+      </div>
+      <div class="w-100"></div>
       <% list.tasks.each do |task| %>
         <% if task.complete? %>
         <ul class="archives-tasks">
@@ -15,7 +15,7 @@
         </ul>
         <% end %>
       <% end %>
+    </div>
     <% end %>
-  </div>
   <% end %>
 </div>
