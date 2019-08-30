@@ -3,13 +3,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      b {
+        text-transform: capitalize;
+      }
     </style>
   </head>
 
   <body>
     <p>Congratualtions! Good job!</p>
-    <p>You have completed <strong><%= @task.name  %></strong> Task in <strong><%= @list.name  %></strong> List!</p>
+    <p>You have completed <b class="mail-name"><%= @task.name  %></b> Task in <b class="mail-name"><%= @list.name  %></b> List!</p>
     <p>Here's a UNICORN for you!</p>
     <%= image_tag(attachments['unicorn.png'].url) %>
     <%= yield %>
