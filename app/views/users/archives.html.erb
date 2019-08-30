@@ -10,9 +10,13 @@
       <div class="w-100"></div>
       <% list.tasks.each do |task| %>
         <% if task.complete? %>
-        <ul class="archives-tasks">
-          <h5><i class="fa fa-check" aria-hidden="true"></i><%= task.name %></h5>
-        </ul>
+        <div class="row">
+          <div class="col">
+            <ul class="archives-tasks">
+              <h5><i class="fa fa-check" aria-hidden="true"></i><%= task.name %></h5>
+            </ul>
+          </div>
+        </div>
         <% end %>
       <% end %>
     </div>
