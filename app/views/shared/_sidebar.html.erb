@@ -16,6 +16,21 @@
       <li class="list-inline <%= "active" if params[:action] == "archives" %>"><i class="fas fa-archive"></i>Archives</li>
     <% end  %>
 
+    <div id="search-box"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+    <script type="text/html" id="hit-template">
+    <div class="hit">
+      <p class="hit-name">
+        {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
+      </p>
+    </div>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.33.0/dist/algoliasearchLite.min.js" integrity="sha256-3Laj91VXexjTlFLgL8+vvIq27laXdRmFIcO2miulgEs=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.4.0/dist/instantsearch.production.min.js" integrity="sha256-pM0n88cBFRHpSn0N26ETsQdwpA7WAXJDvkHeCLh3ujI=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+
     <li class='hl list-inline'></li>
     <li class="nav-item dropdown settings" style="list-style: none">
         <i class="fas fa-cog settings list-inline dropdown-toggle" id="navbarDropdown", data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span> Settings</span></i>
