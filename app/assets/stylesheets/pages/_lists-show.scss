@@ -3,6 +3,10 @@
     margin: 10px 20px 30px 20px;
   }
 
+  .row:empty{
+    visibility: collapse;
+  }
+
   .fa-circle {
     margin: 0px 5px 0px 0px;
     color: #109CF1;
