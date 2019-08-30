@@ -2,8 +2,8 @@
   <h1>Completed Tasks</h1>
   <% @lists.each do |list| %>
   <div class="row">
+    <% if list.archive %>
     <i class="fas fa-circle"></i>
-    <% unless list.archive %>
     <div class="col">
       <h4><%= list.name %></h4>
     </div>

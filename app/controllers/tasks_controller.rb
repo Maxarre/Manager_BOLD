@@ -27,6 +27,7 @@ class TasksController < ApplicationController
   def complete
     @list = List.find(params[:id])
     @list.archive = true
+    @list.save
     @user = current_user
     @task = Task.find(params[:list_id])
     @task.complete = true
