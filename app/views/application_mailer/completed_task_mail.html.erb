@@ -9,6 +9,7 @@
 
   <body>
     <p>Congratualtions! Good job!</p>
+    <p>You have completed <strong><%= @task.name  %></strong> Task in <strong><%= @list.name  %></strong> List!</p>
     <p>Here's a UNICORN for you!</p>
     <%= image_tag(attachments['unicorn.png'].url) %>
     <%= yield %>
